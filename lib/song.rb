@@ -11,15 +11,15 @@ class Song
   end
 
   def self.create
-    @@all << self.new
-    @@all.last
+    self.all << self.new
+    self.all.last
   end
 
   def self.new_by_name(name)
     song = self.new
     song.name = name
-    @@all << song
-    @@all.last
+    self.all << song
+    self.all.last
   end
 
   def self.create_by_name(name)
@@ -27,7 +27,7 @@ class Song
   end
 
   def self.find_by_name(name)
-    foundSong = @@all.detect { |song| song.name == name }
+    foundSong = self.all.detect { |song| song.name == name }
     foundSong
   end
 
@@ -45,7 +45,7 @@ class Song
     song = self.new
     song.artist_name = artist
     song.name = song_name
-    @@all << song
+    self.all << song
     song
   end
 
@@ -54,7 +54,6 @@ class Song
   end
 
   def self.destroy_all
-    @@all.clear
+    self.all.clear
   end
-
 end
